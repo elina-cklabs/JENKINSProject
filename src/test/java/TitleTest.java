@@ -7,6 +7,11 @@ public class TitleTest {
 
 	@Test
 	public void testing() {
+		FirefoxBinary firefoxBinary = new FirefoxBinary();
+		firefoxBinary.addCommandLineOptions("--headless");
+		FirefoxOptions firefoxOptions = new FirefoxOptions();
+		firefoxOptions.setBinary(firefoxBinary);
+		WebDriver driver = new FirefoxDriver(firefoxOptions);
     WebDriver driver = new FirefoxDriver();
         
         //And now use this to visit the website
