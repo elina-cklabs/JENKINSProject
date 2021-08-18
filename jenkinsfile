@@ -16,8 +16,11 @@ pipeline {
 	    }
 	   }
 	}
-	stage('Publish'){
-	   step([$class:'Publisher', reportFilenamePattern:'**/testng-results.xml', escapeTestDescp: true, escapeExceptionMsg: true, showFailedBuilds: false, failureOnFailedTestConfig: false, unstableSkips: 100, unstableFails: 0, failedSkips: 100, failedFails:0, thresholdMode:2])
-	}
+	 stage('Publish') {
+            steps {
+                step([$class: 'Publisher', escapeExceptionMsg: true, escapeTestDescp: true, failureOnFailedTestConfig: false, reportFilenamePattern: '**/testng-results.xml', showFailedBuilds: false, thresholdMode: 2, unstableSkips: 100, failedSkips: 100, unstableFails: 0, failedFails: 100])
+            }
+        }
+
     }
 }
